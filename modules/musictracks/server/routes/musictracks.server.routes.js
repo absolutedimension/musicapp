@@ -19,7 +19,7 @@ module.exports = function(app) {
   
   app.route('/v1/searchtracks').all(musictracksPolicy.isAllowed)
     .get(musictracks.musictrackByTitle);
-
+  
   // Finish by binding the Musictrack middleware
   app.param('musictrackId', musictracks.musictrackByID);
 };

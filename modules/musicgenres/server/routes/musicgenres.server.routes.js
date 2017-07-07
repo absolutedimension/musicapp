@@ -17,6 +17,10 @@ module.exports = function(app) {
     .put(musicgenres.update)
     .delete(musicgenres.delete);
 
+  
+   app.route('/v1/allgenre')
+    .get(musicgenres.getAllGenreList);
+
   // Finish by binding the Musicgenre middleware
   app.param('musicgenreId', musicgenres.musicgenreByID);
 };

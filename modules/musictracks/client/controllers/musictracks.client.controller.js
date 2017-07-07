@@ -6,9 +6,9 @@
     .module('musictracks')
     .controller('MusictracksController', MusictracksController);
 
-  MusictracksController.$inject = ['$scope', '$state', '$window','$timeout', 'Authentication', 'musictrackResolve','MusicgenresService'];
+  MusictracksController.$inject = ['$scope', '$state','$http', '$window','$timeout', 'Authentication', 'musictrackResolve','MusicgenresService'];
 
-  function MusictracksController ($scope, $state, $window,$timeout, Authentication, musictrack,MusicgenresService,musicgenre) {
+  function MusictracksController ($scope, $state,$http, $window,$timeout, Authentication, musictrack,MusicgenresService,musicgenre) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -19,16 +19,14 @@
     vm.remove = remove;
     vm.save = save;
     vm.querySearch = querySearch;
-    vm.filterSelected = true
-    
-   
-    
+    vm.filterSelected = true;
+
+    getAllGenreList();
+       
     if(vm.musictrack._id){
        vm.genreList = vm.musictrack.genre;
-       $timeout(populateGenres,500);
-      
-    } else {
-       vm.genreList = MusicgenresService.query();
+       $timeout(populateGenres,500);     
+    } else {   
        $timeout(populateGenres,500);
        vm.genres = [];
     }
@@ -37,20 +35,20 @@
       vm.loadGenres = loadGenres();
       if(vm.musictrack._id) {
         var tempArray = [];
-        vm.genres = tempArray.concat(vm.loadGenres);
+        vm.genres = vm.musictrack.genre;
       } else {
-        vm.genres = [];
-      }
-         
+         vm.genreList = allGenreList;
+         //alert("All genre list :"+JSON.stringify(vm.genreList));
+         vm.genres = [];
+      }       
     }
-
     
     function querySearch (criteria) {
       return criteria ? vm.loadGenres.filter(createFilterFor(criteria)) : [];
     }
 
    function loadGenres() {    
-      var genres = vm.genreList;
+      var genres = allGenreList;
       return genres;
        return genres.map(function (c, index) {
         var genre = {
@@ -69,9 +67,18 @@
         return (genre.name.toLowerCase().indexOf(lowercaseQuery) != -1);
       };
     }
+    var allGenreList = [];
+    function getAllGenreList(){
+      $http.get('v1/allgenre').then(function(response){
+          allGenreList = response.data;
+          console.log("All Genre List :"+JSON.stringify(allGenreList));
+      }).catch(function(response){
+          console.log("Error caught :"+response.data);
+          return;
+      });
+      return allGenreList;
+    }
      
-
-
 
     // Remove existing Musictrack
     function remove() {
@@ -89,6 +96,8 @@
 
       // TODO: move create/update logic to service
       if (vm.musictrack._id) {
+        vm.musicgenre = vm.genres;
+        vm.musictrack.genre = vm.musicgenre;
         vm.musictrack.$update(successCallback, errorCallback);
       } else {
         vm.musicgenre = vm.genres;

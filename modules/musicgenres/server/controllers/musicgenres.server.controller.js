@@ -167,3 +167,15 @@ exports.musicgenreByID = function(req, res, next, id) {
     next();
   });
 };
+
+exports.getAllGenreList  = function(req,res){
+    Musicgenre.find().exec(function(err,musicgenres){
+       if (err) {
+      return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.jsonp(musicgenres);
+      }
+    });
+}

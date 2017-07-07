@@ -14,7 +14,7 @@
 
     vm.chipName = function(chip) {
       return {
-        name: chip
+        name: chip.title
       };
     };
 
