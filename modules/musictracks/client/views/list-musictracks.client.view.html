@@ -1,0 +1,31 @@
+<section>
+  <div class="page-header">
+    <h1 style="color: #666">Music Tracks</h1>
+     <input placeholder="Type to filter" id="search-input" ng-model="searchText">
+     <md-button style="left: 20%;color: #08c65b" ng-click="searchTracks()">Search</md-button>
+     </input>              
+  </div>
+  <div  id="track-container" class="list-group">
+    <a ng-repeat="musictrack in vm.musictracks | filter:searchText track by $index"
+       ui-sref="musictracks.view({ musictrackId: musictrack._id })"
+       class="list-group-item">
+      <div>
+        <h4 class="list-group-item-heading" style="color:#666666" >{{musictrack.title}}</h4>
+         <md-chips class="custom-chips" ng-model="musictrack.genre" readonly="true"
+            md-transform-chip="vm.chipName($chip)" md-removable="false">
+          <md-chip-template>
+            <span style="color: #999">
+             {{$chip.name}}
+            </span>
+          </md-chip-template>
+        </md-chips>
+      </div>
+      <rating style="right: 5px;top: 10px;position: absolute;" ng-model="musictrack.rating" max="10" readonly="true" ></rating>
+    </a>
+    <md-button ui-sref="musictracks.create" class="track-create">Add New Track</md-button>
+    <div style="text-align: center" paging page="3" page-size="3"  paging-action="setPage( page)">
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.musictracks.$resolved && !vm.musictracks.length">
+    No Musictracks yet, why don't you <a ui-sref="musictracks.create">create one</a>?
+  </div>
+</section>

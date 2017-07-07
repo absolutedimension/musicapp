@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.musicgenre.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.musicgenre.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="musicgenres.edit({ musicgenreId: vm.musicgenre._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted" style="color: #999">
+      Created By
+      <span ng-bind="vm.musicgenre.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.musicgenre.user"
+            ng-bind="vm.musicgenre.user.displayName"></span>
+      <span ng-if="!vm.musicgenre.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.musicgenre.content"></p>
+</section>

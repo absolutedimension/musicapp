@@ -1,0 +1,18 @@
+<section>
+  <div class="page-header">
+    <h1 style="color: #666">Music Genres</h1>
+  </div>
+  <div id="genre-container" class="list-group">
+    <a ng-repeat="musicgenre in vm.musicgenres"
+       ui-sref="musicgenres.view({ musicgenreId: musicgenre._id })"
+       class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="musicgenre.name" style="color: #999"></h4>
+    </a>
+    <md-button ui-sref="musicgenres.create" class="track-create">Add Genre</md-button>
+    <div style="text-align: center" paging page="3" page-size="3"  paging-action="setPage( page)">
+  </div>
+</div> 
+  <div class="alert alert-warning text-center" ng-if="vm.musicgenres.$resolved && !vm.musicgenres.length">
+    No Musicgenres yet, why don't you <a ui-sref="musicgenres.create">create one</a>?
+  </div>
+</section>

@@ -1,0 +1,137 @@
+.content {
+  margin-top: 50px;
+}
+.undecorated-link:hover {
+  text-decoration: none;
+}
+[ng\:cloak],
+[ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+.header-profile-image {
+  opacity: 0.8;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.open .header-profile-image,
+a:hover .header-profile-image {
+  opacity: 1;
+}
+.user-header-dropdown-toggle {
+  padding-top: 11px !important;
+  padding-bottom: 11px !important;
+}
+.error-text {
+  display: none;
+}
+.has-error .help-block.error-text {
+  display: block;
+}
+.has-error .help-inline.error-text {
+  display: inline;
+}
+input :focus{
+  outline: 0;
+}
+div :focus{
+  outline: 0;
+}
+.form-container{
+  width: 40%;left: 30%;position: absolute;height: 350px;
+}
+/*@media only screen and (max-width:480px){
+.form-container{
+  width: 100%;left: 0%;
+}*/
+#genre-container{
+  width: 40%;left: 30%;position: absolute;height: 350px;
+}
+@media only screen and (max-width:480px){
+#genre-container{
+  width: 100%;left: 0%;
+}
+}
+#track-container{
+  width: 40%;left: 30%;position: absolute;height: 350px;
+}
+@media only screen and (max-width:480px){
+  #track-container{
+  width: 100%;left: 0%;
+}
+}    
+
+#search-input {
+    width: 40%;
+    left: 30%;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    height: 40px;
+    border: 1px solid rgb(231, 231, 231);
+    position: relative;
+   
+
+}
+@media only screen and (max-width:480px) {
+  #search-input {
+    width: 100%;
+    left:0%;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    height: 40px;
+    border: 1px solid rgb(231, 231, 231);
+    position: relative;
+}
+}
+
+.track-create{
+    width: 100%;
+    background: #08c65b;
+    margin-left: 0px;
+}
+
+.chipsdemoContactChips md-content.autocomplete {
+  min-height: 250px; }
+  .chipsdemoContactChips md-content.autocomplete input {
+    min-width: 400px; }
+
+.chipsdemoContactChips .md-item-text.compact {
+  padding-top: 8px;
+  padding-bottom: 8px; }
+
+.chipsdemoContactChips .contact-item {
+  box-sizing: border-box; }
+  .chipsdemoContactChips .contact-item.selected {
+    opacity: 0.5; }
+    .chipsdemoContactChips .contact-item.selected h3 {
+      opacity: 0.5; }
+  .chipsdemoContactChips .contact-item .md-list-item-text {
+    padding: 14px 0;
+    max-width: 190px; }
+    .chipsdemoContactChips .contact-item .md-list-item-text h3 {
+      margin: 0 !important;
+      padding: 0;
+      line-height: 1.2em !important; }
+    .chipsdemoContactChips .contact-item .md-list-item-text h3, .chipsdemoContactChips .contact-item .md-list-item-text p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden; }
+  @media (min-width: 960px) {
+    .chipsdemoContactChips .contact-item {
+      float: left;
+      width: 33%; } }
+
+.chipsdemoContactChips md-contact-chips {
+  margin-bottom: 10px; }
+
+.chipsdemoContactChips .md-chips {
+  padding: 5px 0 8px; }
+
+.chipsdemoContactChips .fixedRows {
+  height: 250px;
+  overflow: hidden; }
+
