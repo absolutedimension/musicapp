@@ -17,7 +17,7 @@ module.exports = function(app) {
     .put(musictracks.update)
     .delete(musictracks.delete);
   
-  app.route('/v1/searchtracks').all(musictracksPolicy.isAllowed)
+  app.route('/v1/searchtracks')
     .get(musictracks.musictrackByTitle);
   
   // Finish by binding the Musictrack middleware

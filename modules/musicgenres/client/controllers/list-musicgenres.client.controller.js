@@ -11,7 +11,7 @@
     var vm = this;
     $scope.currentPage = 1;
 
-    vm.musicgenres = MusicgenresService.query();
+    vm.musicgenres = MusicgenresService.query({page:$scope.currentPage});
 
     $scope.setPage = function (pageNo) {
       $scope.currentPage = pageNo;
