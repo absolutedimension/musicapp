@@ -11,7 +11,7 @@
     var vm = this;
     $scope.currentPage = 1;
 
-    vm.musictracks = MusictracksService.query();
+    vm.musictracks = MusictracksService.query({page:$scope.currentPage});
 
     vm.chipName = function(chip) {
       return {
