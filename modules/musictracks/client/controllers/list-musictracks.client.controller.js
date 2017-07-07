@@ -34,11 +34,15 @@
 
      //Updating listview by listening web-socket.
     Socket.on('musictrack.updated', function(musictrack) {
-        vm.musictracks.push(musicgenre);
+        vm.musictracks.push(musictrack);
+    });
+
+     Socket.on('musictrack.created', function(musictrack) {
+        vm.musictracks.push(musictrack);
     });
 
      Socket.on('musictrack.deleted', function(musictrack) {
-        vm.musictracks.pop(musicgenre);
+        vm.musictracks.pop(musictrack);
     });
   }
 }());
