@@ -9,12 +9,13 @@
 
   function MusictracksListController($scope,$http,MusictracksService,Socket) {
     var vm = this;
+    $scope.currentPage = 1;
 
     vm.musictracks = MusictracksService.query();
 
     vm.chipName = function(chip) {
       return {
-        name: chip.title
+        name: chip
       };
     };
 

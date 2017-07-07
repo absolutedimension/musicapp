@@ -9,7 +9,7 @@
       <h4 class="list-group-item-heading" ng-bind="musicgenre.name" style="color: #999"></h4>
     </a>
     <md-button ui-sref="musicgenres.create" class="track-create">Add Genre</md-button>
-    <div style="text-align: center" paging page="3" page-size="3"  paging-action="setPage( page)">
+    <div style="text-align: center" paging page="currentPage" page-size="3"  paging-action="setPage( page)">
   </div>
 </div> 
   <div class="alert alert-warning text-center" ng-if="vm.musicgenres.$resolved && !vm.musicgenres.length">

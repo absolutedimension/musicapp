@@ -23,7 +23,7 @@
       <rating style="right: 5px;top: 10px;position: absolute;" ng-model="musictrack.rating" max="10" readonly="true" ></rating>
     </a>
     <md-button ui-sref="musictracks.create" class="track-create">Add New Track</md-button>
-    <div style="text-align: center" paging page="3" page-size="3"  paging-action="setPage( page)">
+    <div style="text-align: center" paging page="currentPage" page-size="3"  paging-action="setPage( page)">
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.musictracks.$resolved && !vm.musictracks.length">
     No Musictracks yet, why don't you <a ui-sref="musictracks.create">create one</a>?

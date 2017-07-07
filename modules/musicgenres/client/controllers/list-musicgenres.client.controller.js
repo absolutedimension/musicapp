@@ -9,6 +9,7 @@
 
   function MusicgenresListController($scope,MusicgenresService,$timeout,Socket) {
     var vm = this;
+    $scope.currentPage = 1;
 
     vm.musicgenres = MusicgenresService.query();
 

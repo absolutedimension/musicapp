@@ -124,26 +124,6 @@ exports.list = function(req, res) {
   });
 };
 
-//  Musicgenre.find().exec(function(err, musicgenres) {
-//     if (err) {
-//       return res.status(400).send({
-//         message: errorHandler.getErrorMessage(err)
-//       });
-//     } else {
-//       responseObj.results = musicgenres;
-//       Musicgenre.find().count().exec(function(err,musicgenre){
-//         if (err) {
-//           return res.status(400).send({
-//             message: errorHandler.getErrorMessage(err)
-//           });
-//         } else {
-//           responseObj.count = musicgenre;
-//            res.jsonp(responseObj);
-//         }
-//       });   
-//     }
-//   });
-
 /**
  * Musicgenre middleware
  */
