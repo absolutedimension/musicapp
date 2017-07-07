@@ -151,11 +151,11 @@ exports.list = function(req, res) {
         var perPage = 4;
         var pageNo = req.param('page') > 0 ? req.param('page') : 0;
         var page = parseInt(pageNo);
-        var nextPage = "http://localhost:3000/api/musictracks?page="+(page+1);
+        var url = "http://35.185.87.223:8443/v1/tracks?page=";
+        var nextPage = url+(page+1);
         var prevPage = null;
-        console.log("Pagination inputs :"+perPage,page,nextPage,prevPage);
         if(page-1 !== 0 && page !== 0){
-          prevPage = "http://localhost:3000/api/musictracks?page="+(page-1);
+          prevPage = url+(page-1);
         }
         Musictrack.find().limit(perPage).skip(perPage * page).sort('-created').populate('genre').exec(function(err, musictracks) {
           if (err) {
