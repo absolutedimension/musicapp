@@ -99,14 +99,14 @@ exports.list = function(req, res) {
         var perPage = 4;
         var pageNo = req.param('page') > 0 ? req.param('page') : 0;
         var page = parseInt(pageNo);
-         var url = "http://35.185.87.223:8443/v1/genres?page=";
+         var url = "http://52.187.59.50:8443/v1/genres?page=";
         var nextPage = url+(page+1);
         var prevPage = null;
         console.log("Pagination inputs :"+perPage,page,nextPage,prevPage);
         if(page-1 !== 0 && page !== 0){
           prevPage = url+(page-1);
         }
-        Musicgenre.find().limit(perPage).skip(perPage * page).sort('-created').populate('genre').exec(function(err, musicgenres) {
+       Musicgenre.find().limit(perPage).skip(perPage * (page-1)).sort('-created').populate('genre').exec(function(err, musicgenres) {
           if (err) {
             return res.status(400).send({
               message: errorHandler.getErrorMessage(err)
